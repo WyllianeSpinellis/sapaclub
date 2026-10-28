@@ -258,3 +258,70 @@ footer a {
     scroll-behavior: auto;
   }
 }
+
+.badge-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 250px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.badge-card:hover {
+  transform: translateY(-4px);
+  border-color: #e3a3b1;
+}
+
+.badge-card svg {
+  display: block;
+  width: 112px;
+  height: 112px;
+  margin: 8px auto;
+}
+
+.badge-card h3 {
+  margin: 4px 0;
+  font-size: 17px;
+}
+
+.badge-card p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.badge-card.locked {
+  filter: grayscale(0.75);
+  opacity: 0.65;
+}
+
+.badge-card.unlocked {
+  border-color: #d79bab;
+  background: #fff8fa;
+}
+
+.badge-card .favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: white;
+  color: #a04b65;
+  font-size: 20px;
+}
+
+.badge-card .favorite-button[aria-pressed="true"] {
+  background: #fff0f3;
+  border-color: #f1c3ce;
+  color: #dc4869;
+}
+
+#profile-status,
+#form-status {
+  min-height: 24px;
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SapaClub: um fã-clube fictício para celebrar mulheres lésbicas."
+    />
+    <title>SapaClub — nosso orgulho, nosso espaço</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="SapaClub, início">
+        SapaClub
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <a href="#emblemas">Emblemas</a>
+        <a href="#meu-passe">Meu passe</a>
+        <a href="#sobre">Sobre o clube</a>
+        <a href="#entrar">Fazer parte</a>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section id="inicio" class="hero">
+        <p>Um clube feito por e para nós</p>
+        <h1>Nosso orgulho.<br />Nosso espaço.</h1>
+        <p>
+          Um fã-clube fictício para celebrar mulheres lésbicas, criar laços e
+          colecionar emblemas.
+        </p>
+        <a href="#emblemas">Conheça os emblemas</a>
+      </section>
+
+      <section id="emblemas">
+        <h2>Seu tempo. Seu emblema.</h2>
+        <p>Cada etapa da sua jornada no clube desbloqueia um novo emblema.</p>
+        <div id="badge-list" aria-label="Coleção de emblemas"></div>
+      </section>
+
+      <section id="meu-passe">
+        <h2>Veja sua coleção crescer</h2>
+        <label for="months">Tempo de clube, em meses</label>
+        <input id="months" type="range" min="0" max="24" value="1" />
+        <button id="save-pass" type="button">Salvar meu passe</button>
+      </section>
+
+      <section id="sobre">
+        <h2>Um clube para pertencer</h2>
+        <p>
+          O SapaClub nasceu da ideia de criar um espaço online onde mulheres
+          lésbicas possam celebrar suas histórias, compartilhar interesses e
+          criar vínculos com outras mulheres que se reconhecem nessa comunidade.
+        </p>
+        <p>
+          A proposta é acolher conversas respeitosas, apoiar a expressão de cada
+          integrante e valorizar a cultura lésbica. Os emblemas representam o
+          tempo e as memórias construídas junto ao clube.
+        </p>
+        <p>
+          Este é um projeto fictício para a atividade de Desenvolvimento
+          Front-end para Web.
+        </p>
+      </section>
+
+      <section id="entrar">
+        <h2>Seu lugar também é aqui</h2>
+        <form id="join-form">
+          <label for="name">Como podemos te chamar?</label>
+          <input id="name" name="name" type="text" required maxlength="40" />
+
+          <label for="email">Seu e-mail</label>
+          <input id="email" name="email" type="email" required />
+
+          <label for="plan">Escolha seu passe fictício</label>
+          <select id="plan" name="plan" required>
+            <option value="">Selecione uma opção</option>
+            <option>Faísca — 1 mês</option>
+            <option>Brilho — 2 meses</option>
+            <option>Orgulho — 6 meses</option>
+            <option>Lenda — 12 meses</option>
+            <option>Ícone — 24 meses</option>
+          </select>
+
+          <button type="submit">Entrar no clube</button>
+          <p id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>SapaClub — um projeto fictício feito com orgulho e código.</p>
+      <a href="#inicio">Voltar ao início</a>
+    </footer>
+  </body>
+</html>

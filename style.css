@@ -1,0 +1,260 @@
+:root {
+  --plum: #25182d;
+  --plum-light: #392343;
+  --cream: #fff8f0;
+  --paper: #fffdf9;
+  --ink: #2c2130;
+  --muted: #766a78;
+  --pink: #ff6c88;
+  --lilac: #cdb9f3;
+  --gold: #f3c86a;
+  --line: #eadfe5;
+  --shadow: 0 16px 42px #29183212;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font:
+    16px/1.55 system-ui,
+    sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 12px;
+  z-index: 10;
+  padding: 10px 14px;
+  background: white;
+  color: var(--ink);
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+.topbar {
+  min-height: 76px;
+  padding: 16px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--plum);
+  color: white;
+}
+
+.brand {
+  color: var(--pink);
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+nav a {
+  color: #eaddec;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.hero {
+  padding: 80px 8%;
+  background: var(--plum);
+  color: white;
+}
+
+.hero > p:first-child {
+  color: var(--pink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 14px 0;
+  font-size: clamp(44px, 7vw, 76px);
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.hero p {
+  max-width: 600px;
+  color: #dfd3e1;
+}
+
+.hero a,
+button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pink);
+  color: var(--plum);
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+section {
+  padding: 64px 8%;
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+#emblemas,
+#entrar {
+  background: #f7edf1;
+}
+
+#badge-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.badge-card {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+#meu-passe {
+  background: var(--plum);
+  color: white;
+}
+
+#meu-passe label {
+  display: block;
+  margin: 14px 0 6px;
+}
+
+#months {
+  width: min(100%, 460px);
+  accent-color: var(--pink);
+}
+
+#sobre {
+  background: var(--cream);
+}
+
+#sobre p {
+  max-width: 760px;
+  color: var(--muted);
+}
+
+form {
+  max-width: 520px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+form label {
+  display: block;
+  margin: 14px 0 5px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #dfd3dc;
+  border-radius: 9px;
+  background: white;
+  color: var(--ink);
+}
+
+footer {
+  padding: 28px 8%;
+  background: var(--plum);
+  color: white;
+}
+
+footer a {
+  color: var(--pink);
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .hero {
+    padding: 58px 7%;
+  }
+
+  .hero h1 {
+    letter-spacing: -2px;
+  }
+
+  section {
+    padding: 48px 7%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

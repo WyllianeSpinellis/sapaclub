@@ -30,6 +30,10 @@ Este projeto está sendo desenvolvido como atividade de Desenvolvimento Front-en
 - JavaScript
 - SVG
 
+## Decisão sobre os gráficos
+
+O SapaClub usa SVG nos emblemas e na ilustração do destaque. Como são gráficos vetoriais, eles podem aumentar ou diminuir sem perder nitidez. Os SVGs também têm título e descrição acessíveis. Canvas não foi necessário porque o site não precisa de desenho pixel a pixel nem de animações gráficas intensivas.
+
 ## Como visualizar
 
 Abra `index.html` em um navegador. O projeto não precisa de instalação de dependências.

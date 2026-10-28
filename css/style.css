@@ -325,3 +325,36 @@ footer a {
 #form-status {
   min-height: 24px;
 }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 32px;
+}
+
+.hero-content > p:first-child {
+  color: var(--pink);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero-illustration {
+  display: block;
+  width: min(100%, 430px);
+  height: auto;
+  justify-self: center;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hero-illustration {
+    width: min(85%, 320px);
+  }
+}

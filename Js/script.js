@@ -1,236 +1,276 @@
+"use strict";
+
 const emblemas = [
-  { meses: 1, nome: "Faísca", cor: "#f3c86a", simbolo: "✦" },
-  { meses: 2, nome: "Brilho", cor: "#ff8ba0", simbolo: "♥" },
-  { meses: 6, nome: "Orgulho", cor: "#c6a2ed", simbolo: "✧" },
-  { meses: 12, nome: "Lenda", cor: "#84c9ad", simbolo: "★" },
-  { meses: 24, nome: "Ícone", cor: "#f2a96c", simbolo: "✺" }
+  {
+    meses: 1,
+    nome: "Faísca",
+    simbolo: "✦",
+    cor: "#f3c86a",
+    fundo: "#fff1c9",
+    descricao: "Seu primeiro mês no clube.",
+  },
+  {
+    meses: 2,
+    nome: "Brilho",
+    simbolo: "♥",
+    cor: "#ff8fa3",
+    fundo: "#ffe1e7",
+    descricao: "Dois meses criando laços.",
+  },
+  {
+    meses: 3,
+    nome: "Constelação",
+    simbolo: "✧",
+    cor: "#c6a2ed",
+    fundo: "#eadcff",
+    descricao: "Três meses brilhando em comunidade.",
+  },
+  {
+    meses: 6,
+    nome: "Orgulho",
+    simbolo: "★",
+    cor: "#84c9ad",
+    fundo: "#d6f0e4",
+    descricao: "Seis meses celebrando quem você é.",
+  },
+  {
+    meses: 9,
+    nome: "Raízes",
+    simbolo: "❋",
+    cor: "#f2a96c",
+    fundo: "#ffe3ca",
+    descricao: "Nove meses de histórias compartilhadas.",
+  },
+  {
+    meses: 12,
+    nome: "Lenda",
+    simbolo: "✿",
+    cor: "#91b8e8",
+    fundo: "#dceaff",
+    descricao: "Um ano de histórias e orgulho.",
+  },
+  {
+    meses: 18,
+    nome: "Ícone",
+    simbolo: "☼",
+    cor: "#d995c5",
+    fundo: "#f5ddf0",
+    descricao: "Dezoito meses fazendo parte da história.",
+  },
+  {
+    meses: 24,
+    nome: "Eternidade",
+    simbolo: "✺",
+    cor: "#e7a56d",
+    fundo: "#ffead8",
+    descricao: "Dois anos de orgulho e comunidade.",
+  },
 ];
+
+const chavePasse = "sapaclub-passe";
+const chaveFavoritos = "sapaclub-favoritos";
 
 const listaEmblemas = document.querySelector("#badge-list");
 const controleMeses = document.querySelector("#months");
 const botaoSalvarPasse = document.querySelector("#save-pass");
 const formulario = document.querySelector("#join-form");
 const mensagemFormulario = document.querySelector("#form-status");
-const campoNome = document.querySelector("#name");
-const campoPlano = document.querySelector("#plan");
 
 function lerDados(chave, valorPadrao) {
   try {
-    const dadosSalvos = localStorage.getItem(chave);
-    return dadosSalvos ? JSON.parse(dadosSalvos) : valorPadrao;
+    const dados = localStorage.getItem(chave);
+    return dados ? JSON.parse(dados) : valorPadrao;
   } catch {
     return valorPadrao;
   }
 }
 
 function salvarDados(chave, dados) {
-  try {
-    localStorage.setItem(chave, JSON.stringify(dados));
-    return true;
-  } catch {
-    return false;
-  }
+  localStorage.setItem(chave, JSON.stringify(dados));
 }
 
-function criarSvgEmblema(emblema, indice) {
+function criarImagemEmblema(emblema) {
   return `
     <svg
+      class="badge-svg"
       viewBox="0 0 120 120"
       role="img"
-      aria-labelledby="titulo-emblema-${indice}"
+      aria-label="Emblema ${emblema.nome}"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <title id="titulo-emblema-${indice}">
-        Emblema ${emblema.nome}, ${emblema.meses} meses
-      </title>
-
       <path
-        d="M60 5 72 13 87 10 94 24 108 31 105 47 115 60 105 73 108 89 94 96 87 110 72 107 60 115 48 107 33 110 26 96 12 89 15 73 5 60 15 47 12 31 26 24 33 10 48 13Z"
+        d="M60 5 74 15 91 11 98 28 114 38 108 56 115 72 101 85 100 103 81 105 68 117 52 108 35 115 26 98 9 91 15 73 5 58 17 43 16 25 35 23 47 8Z"
         fill="${emblema.cor}"
         stroke="#fff8f0"
-        stroke-width="3"
+        stroke-width="4"
       />
-
-      <circle cx="60" cy="60" r="31" fill="#fff8f0" />
-
+      <circle cx="60" cy="61" r="34" fill="${emblema.fundo}" />
       <text
         x="60"
-        y="71"
+        y="73"
         text-anchor="middle"
-        font-size="34"
+        font-size="38"
         fill="#38243b"
+        font-family="Arial, sans-serif"
       >${emblema.simbolo}</text>
     </svg>
   `;
 }
 
-function criarCartaoEmblema(emblema, indice, mesesAtuais, favoritos) {
+function criarCartaoEmblema(emblema, mesesAtuais, favoritos) {
   const desbloqueado = mesesAtuais >= emblema.meses;
-  const favorito = favoritos.includes(indice);
+  const favorito = favoritos.includes(emblema.meses);
+  const unidade = emblema.meses === 1 ? "mês" : "meses";
 
-  return `
-    <article class="badge-card ${desbloqueado ? "unlocked" : "locked"}">
+  // Correção: o estado bloqueado é informado por texto, sem depender só da aparência.
+    return `
+  <article class="badge-card ${desbloqueado ? "unlocked" : "locked"}">
       <button
         class="favorite-button"
         type="button"
-        data-favorite="${indice}"
+        data-favorite="${emblema.meses}"
         aria-pressed="${favorito}"
-        aria-label="${favorito ? "Remover dos" : "Adicionar aos"} favoritos: ${emblema.nome}"
+        aria-label="${
+          favorito ? "Remover dos favoritos" : "Adicionar aos favoritos"
+        }: emblema ${emblema.nome}"
       >
         ${favorito ? "♥" : "♡"}
       </button>
 
-      ${criarSvgEmblema(emblema, indice)}
+      ${criarImagemEmblema(emblema)}
 
-      <p>${emblema.meses} ${emblema.meses === 1 ? "mês" : "meses"}</p>
+      <p class="badge-month">
+        ${emblema.meses} ${unidade}
+      </p>
+
       <h3>${emblema.nome}</h3>
-      <p>${desbloqueado ? "Emblema desbloqueado!" : "Continue sua jornada."}</p>
+
+      <p>${emblema.descricao}</p>
+
+      <p class="badge-status">
+        ${
+          desbloqueado
+            ? "Emblema desbloqueado."
+            : "Bloqueado — continue sua jornada."
+        }
+      </p>
     </article>
   `;
 }
 
 function atualizarEmblemas() {
-  const mesesAtuais = Number(controleMeses.value);
-  const favoritos = lerDados("sapaclub-favoritos", []);
+  if (!listaEmblemas || !controleMeses) {
+    return;
+  }
 
-  // Este HTML usa apenas dados fixos dos emblemas, nunca texto digitado pela pessoa.
+  const mesesAtuais = Number(controleMeses.value);
+  const favoritos = lerDados(chaveFavoritos, []);
+
   listaEmblemas.innerHTML = emblemas
-    .map((emblema, indice) =>
-      criarCartaoEmblema(emblema, indice, mesesAtuais, favoritos)
+    .map((emblema) =>
+      criarCartaoEmblema(emblema, mesesAtuais, favoritos),
     )
     .join("");
 }
 
 function atualizarPasse() {
+  if (!controleMeses) {
+    return;
+  }
+
   const mesesAtuais = Number(controleMeses.value);
-  const integrantes = lerDados("sapaclub-passe", {});
-  const nomeIntegrante = integrantes.nome || "";
-  const emblemaAtual = emblemas
-    .filter((emblema) => mesesAtuais >= emblema.meses)
-    .at(-1);
+  const unidade = mesesAtuais === 1 ? "mês" : "meses";
 
-  let statusPasse = document.querySelector("#profile-status");
-
-  if (!statusPasse) {
-    statusPasse = document.createElement("p");
-    statusPasse.id = "profile-status";
-    document.querySelector("#meu-passe").append(statusPasse);
-  }
-
-  if (emblemaAtual) {
-    statusPasse.textContent = nomeIntegrante
-      ? `${nomeIntegrante}, seu emblema atual é ${emblemaAtual.nome}.`
-      : `Seu emblema atual é ${emblemaAtual.nome}.`;
-  } else {
-    statusPasse.textContent =
-      "Seu primeiro emblema chega no primeiro mês.";
-  }
-
-  atualizarEmblemas();
-}
-
-controleMeses.addEventListener("input", atualizarPasse);
-
-botaoSalvarPasse.addEventListener("click", () => {
-  const dadosAtuais = lerDados("sapaclub-passe", {});
-  const dadosAtualizados = {
-    ...dadosAtuais,
-    meses: Number(controleMeses.value)
-  };
-
-  const salvou = salvarDados("sapaclub-passe", dadosAtualizados);
-
-  atualizarPasse();
-
-  mensagemFormulario.textContent = salvou
-    ? "Seu passe foi salvo neste navegador."
-    : "Não foi possível salvar o passe neste navegador.";
-});
-
-listaEmblemas.addEventListener("click", (evento) => {
-  const botaoFavorito = evento.target.closest("[data-favorite]");
-
-  if (!botaoFavorito) {
-    return;
-  }
-
-  const indice = Number(botaoFavorito.dataset.favorite);
-  const favoritos = lerDados("sapaclub-favoritos", []);
-  const jaEraFavorito = favoritos.includes(indice);
-
-  const novosFavoritos = jaEraFavorito
-    ? favoritos.filter((item) => item !== indice)
-    : [...favoritos, indice];
-
-  salvarDados("sapaclub-favoritos", novosFavoritos);
-  atualizarEmblemas();
-});
-
-formulario.addEventListener("submit", (evento) => {
-  evento.preventDefault();
-
-  if (!formulario.reportValidity()) {
-    return;
-  }
-
-  const nomeIntegrante = campoNome.value.trim() || "Nova integrante";
-  const mesesPorOpcao = [0, 1, 2, 6, 12, 24];
-  const mesesDoPasse = mesesPorOpcao[campoPlano.selectedIndex];
-
-  controleMeses.value = mesesDoPasse;
-
-  const salvou = salvarDados("sapaclub-passe", {
-    nome: nomeIntegrante,
-    meses: mesesDoPasse
-  });
-
-  mensagemFormulario.textContent = salvou
-    ? `Boas-vindas, ${nomeIntegrante}! Seu passe foi simulado. O e-mail não foi enviado nem salvo.`
-    : "Não foi possível salvar o passe neste navegador.";
-
-  atualizarPasse();
-});
-
-const dadosIniciais = lerDados("sapaclub-passe", { meses: 1 });
-const mesesSalvos = Number(dadosIniciais.meses);
-
-controleMeses.value = Number.isFinite(mesesSalvos)
-  ? Math.max(0, Math.min(24, mesesSalvos))
-  : 1;
-
-atualizarPasse();
-
-const botaoInteresse = document.querySelector("#interest-button");
-const statusInteresse = document.querySelector("#interest-status");
-const chaveInteresse = "sapaclub-encontro-interesse";
-
-function atualizarInteresse() {
-  const demonstrouInteresse = lerDados(chaveInteresse, false);
-
-  botaoInteresse.setAttribute(
-    "aria-pressed",
-    String(demonstrouInteresse)
+  // Correção: leitores de tela recebem o valor do controle com a unidade adequada.
+  controleMeses.setAttribute(
+    "aria-valuetext",
+    `${mesesAtuais} ${unidade} de participação`,
   );
 
-  botaoInteresse.textContent = demonstrouInteresse
-    ? "Interesse registrado"
-    : "Tenho interesse";
+  const valorMeses = document.querySelector("#month-value");
+  const textoUnidade = document.querySelector("#month-unit");
 
-  statusInteresse.textContent = demonstrouInteresse
-    ? "Seu interesse está salvo neste navegador."
-    : "Seu interesse ainda não foi registrado.";
+  if (valorMeses) {
+    valorMeses.textContent = mesesAtuais;
+  }
+
+  if (textoUnidade) {
+    textoUnidade.textContent = unidade;
+  }
+
+  atualizarEmblemas();
 }
 
-botaoInteresse.addEventListener("click", () => {
-  const interesseAtual = lerDados(chaveInteresse, false);
-  const interesseNovo = !interesseAtual;
-  const salvou = salvarDados(chaveInteresse, interesseNovo);
+function alternarFavorito(meses) {
+  const favoritos = lerDados(chaveFavoritos, []);
+  const jaFavorito = favoritos.includes(meses);
 
-  atualizarInteresse();
+  const novosFavoritos = jaFavorito
+    ? favoritos.filter((mes) => mes !== meses)
+    : [...favoritos, meses];
 
-  if (!salvou) {
-    statusInteresse.textContent =
-      "Não foi possível salvar a escolha neste navegador.";
+  salvarDados(chaveFavoritos, novosFavoritos);
+  atualizarEmblemas();
+}
+
+if (listaEmblemas) {
+  // Correção: os botões de favorito funcionam por teclado e usam um único ouvinte.
+  listaEmblemas.addEventListener("click", (evento) => {
+    const botao = evento.target.closest("[data-favorite]");
+
+    if (!botao) {
+      return;
+    }
+
+    alternarFavorito(Number(botao.dataset.favorite));
+  });
+}
+
+if (controleMeses) {
+  controleMeses.addEventListener("input", atualizarPasse);
+  atualizarPasse();
+}
+
+if (botaoSalvarPasse && controleMeses) {
+  botaoSalvarPasse.addEventListener("click", () => {
+    const passe = lerDados(chavePasse, {});
+    passe.meses = Number(controleMeses.value);
+    salvarDados(chavePasse, passe);
+
+    const mensagem = document.querySelector("#pass-status");
+
+    if (mensagem) {
+      mensagem.textContent = "Seu passe foi salvo neste navegador.";
+    }
+  });
+}
+
+if (formulario) {
+  // Correção: a resposta do formulário é anunciada por uma região de status.
+  if (mensagemFormulario) {
+    mensagemFormulario.setAttribute("role", "status");
+    mensagemFormulario.setAttribute("aria-live", "polite");
   }
-});
 
-atualizarInteresse();
+  formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+
+    if (!formulario.reportValidity()) {
+      return;
+    }
+
+    const nome = document.querySelector("#name")?.value.trim() || "";
+    const passeSelecionado = document.querySelector("#plan")?.value || "";
+
+    const passe = lerDados(chavePasse, {});
+    passe.nome = nome;
+    passe.plano = passeSelecionado;
+    salvarDados(chavePasse, passe);
+
+    if (mensagemFormulario) {
+      mensagemFormulario.textContent =
+        `Bem-vinda, ${nome}! Seu passe foi simulado. ` +
+        "Este projeto não envia seus dados.";
+    }
+  });
+}

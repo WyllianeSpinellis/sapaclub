@@ -219,8 +219,19 @@ button {
 }
 
 .badge-card.locked {
+  opacity: 1;
+  filter: none;
+  background: #f3edf0;
+}
+
+.badge-card.locked svg {
   filter: grayscale(0.75);
-  opacity: 0.65;
+}
+
+.badge-card.locked p,
+.badge-card.locked h3 {
+  opacity: 1;
+  color: #4c3a4b;
 }
 
 .badge-card.unlocked {

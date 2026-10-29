@@ -49,3 +49,11 @@ sapaclub/
 │   └── style.css
 └── js/
     └── script.js
+
+## Aula 15 — DNS, domínios, SSL e deploy
+
+O SapaClub foi publicado com GitHub Pages. A conexão HTTPS está ativada.
+
+A publicação usa o domínio padrão do GitHub Pages; não foi configurado um domínio personalizado.
+
+Acesse o site: [SapaClub](https://wyllianespinellis.github.io/sapaclub/)

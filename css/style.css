@@ -409,3 +409,52 @@ footer a {
 #duvidas .accordion-body {
   color: var(--muted);
 }
+
+#destaque {
+  background: #f7edf1;
+}
+
+.event-card {
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--pink);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.event-label {
+  color: #a04b65;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.event-card h2 {
+  margin: 8px 0 12px;
+  color: var(--plum);
+}
+
+.event-card > p:not(.event-label):not(.event-status) {
+  max-width: 620px;
+  color: var(--muted);
+}
+
+.event-card .event-interest-button {
+  margin-top: 8px;
+  background: var(--pink);
+  color: var(--plum);
+}
+
+.event-card .event-interest-button[aria-pressed="true"] {
+  background: var(--plum);
+  color: white;
+}
+
+.event-card .event-status {
+  min-height: 24px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+}

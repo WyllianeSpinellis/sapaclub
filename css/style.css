@@ -371,3 +371,41 @@ footer a {
     transition-duration: 0.01ms;
   }
 }
+
+#duvidas {
+  background: var(--cream);
+}
+
+.faq-eyebrow {
+  color: #a04b65;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#duvidas .accordion-item {
+  border-color: var(--line);
+  background: var(--paper);
+}
+
+#duvidas .accordion-button {
+  color: var(--ink);
+  background: var(--paper);
+  font-weight: 700;
+}
+
+#duvidas .accordion-button:not(.collapsed) {
+  color: var(--plum);
+  background: #fff0f3;
+  box-shadow: none;
+}
+
+#duvidas .accordion-button:focus {
+  border-color: #e3a3b1;
+  box-shadow: 0 0 0 0.25rem #ff6c8833;
+}
+
+#duvidas .accordion-body {
+  color: var(--muted);
+}

@@ -227,6 +227,13 @@ if (listaEmblemas) {
 }
 
 if (controleMeses) {
+  const passeSalvo = lerDados(chavePasse, {});
+  const mesesSalvos = Number(passeSalvo.meses);
+
+  if (Number.isFinite(mesesSalvos)) {
+    controleMeses.value = String(mesesSalvos);
+  }
+
   controleMeses.addEventListener("input", atualizarPasse);
   atualizarPasse();
 }

@@ -198,3 +198,39 @@ controleMeses.value = Number.isFinite(mesesSalvos)
   : 1;
 
 atualizarPasse();
+
+const botaoInteresse = document.querySelector("#interest-button");
+const statusInteresse = document.querySelector("#interest-status");
+const chaveInteresse = "sapaclub-encontro-interesse";
+
+function atualizarInteresse() {
+  const demonstrouInteresse = lerDados(chaveInteresse, false);
+
+  botaoInteresse.setAttribute(
+    "aria-pressed",
+    String(demonstrouInteresse)
+  );
+
+  botaoInteresse.textContent = demonstrouInteresse
+    ? "Interesse registrado"
+    : "Tenho interesse";
+
+  statusInteresse.textContent = demonstrouInteresse
+    ? "Seu interesse está salvo neste navegador."
+    : "Seu interesse ainda não foi registrado.";
+}
+
+botaoInteresse.addEventListener("click", () => {
+  const interesseAtual = lerDados(chaveInteresse, false);
+  const interesseNovo = !interesseAtual;
+  const salvou = salvarDados(chaveInteresse, interesseNovo);
+
+  atualizarInteresse();
+
+  if (!salvou) {
+    statusInteresse.textContent =
+      "Não foi possível salvar a escolha neste navegador.";
+  }
+});
+
+atualizarInteresse();

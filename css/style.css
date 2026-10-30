@@ -471,3 +471,55 @@ footer a {
   color: var(--muted);
   font-size: 13px;
 }
+
+.brand {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+}
+
+.brand-name-sapa {
+  color: var(--pink);
+}
+
+.menu-card {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #806989;
+  border-radius: 999px;
+  background: #392343;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+}
+
+.menu-card a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+}
+
+.menu-card a:hover,
+.menu-card a:focus-visible {
+  background: #ff6c88;
+  color: #25182d;
+}
+
+.hero-illustration {
+  width: clamp(300px, 42vw, 520px);
+  max-width: 100%;
+  height: auto;
+}
+
+#destaque .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+#destaque .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#destaque .row > * {
+  padding-right: 0;
+  padding-left: 0;
+}

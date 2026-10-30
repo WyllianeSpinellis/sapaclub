@@ -284,3 +284,28 @@ if (formulario) {
     }
   });
 }
+
+const botaoInteresse = document.querySelector("#interest-button");
+const statusInteresse = document.querySelector("#interest-status");
+const chaveInteresse = "sapaclub-interesse-evento";
+
+if (botaoInteresse && statusInteresse) {
+  const interesseSalvo = lerDados(chaveInteresse, false);
+
+  botaoInteresse.setAttribute("aria-pressed", String(interesseSalvo));
+  statusInteresse.textContent = interesseSalvo
+    ? "Seu interesse está registrado neste navegador."
+    : "Seu interesse ainda não foi registrado.";
+
+  botaoInteresse.addEventListener("click", () => {
+    const novoEstado =
+      botaoInteresse.getAttribute("aria-pressed") !== "true";
+
+    botaoInteresse.setAttribute("aria-pressed", String(novoEstado));
+    salvarDados(chaveInteresse, novoEstado);
+
+    statusInteresse.textContent = novoEstado
+      ? "Seu interesse foi registrado neste navegador."
+      : "Seu interesse foi removido.";
+  });
+}

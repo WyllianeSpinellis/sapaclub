@@ -218,9 +218,22 @@ button {
   font-size: 12px;
 }
 
+/* Correção 1: a opacidade no cartão reduzia o contraste do texto; mantemos o texto legível e aplicamos escala de cinza apenas ao emblema. */
+
 .badge-card.locked {
+  opacity: 1;
+  filter: none;
+  background: #f3edf0;
+}
+
+.badge-card.locked svg {
   filter: grayscale(0.75);
-  opacity: 0.65;
+}
+
+.badge-card.locked p,
+.badge-card.locked h3 {
+  opacity: 1;
+  color: #4c3a4b;
 }
 
 .badge-card.unlocked {
@@ -457,4 +470,110 @@ footer a {
   margin-bottom: 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.brand {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+}
+
+.brand-name-sapa {
+  color: var(--pink);
+}
+
+.menu-card {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #806989;
+  border-radius: 999px;
+  background: #392343;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+}
+
+.menu-card a {
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+}
+
+.menu-card a:hover,
+.menu-card a:focus-visible {
+  background: #ff6c88;
+  color: #25182d;
+}
+
+.hero-illustration {
+  width: clamp(300px, 42vw, 520px);
+  max-width: 100%;
+  height: auto;
+}
+
+#destaque .container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+#destaque .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+#destaque .row > * {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#bandeiras {
+  background: #f7edf1;
+}
+
+#bandeiras > p {
+  max-width: 760px;
+  color: var(--muted);
+}
+
+#bandeiras .flag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.flag-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.flag-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.flag-card h3 {
+  margin: 12px 0 0;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  #bandeiras .flag-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .flag-card {
+    padding: 12px;
+  }
+
+  .flag-card h3 {
+    font-size: 14px;
+  }
 }

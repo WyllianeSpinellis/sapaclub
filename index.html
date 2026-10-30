@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+<head>  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
@@ -31,23 +32,22 @@
 
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="SapaClub, início">
-        SapaClub
-      </a>
+  <span class="brand-name-sapa">Sapa</span>Club
+</a>
 
-      <nav aria-label="Navegação principal">
-        <a href="#emblemas">Emblemas</a>
-        <a href="#meu-passe">Meu passe</a>
-        <a href="#sobre">Sobre o clube</a>
-        <nav aria-label="Navegação principal">
-        <a href="#entrar">Fazer parte</a>
-      </nav>
+      <nav class="menu-card" aria-label="Navegação principal">
+  <a href="#emblemas">Emblemas</a>
+  <a href="#meu-passe">Meu passe</a>
+  <a href="#sobre">Sobre o clube</a>
+  <a href="#entrar">Fazer parte</a>
+</nav>
     </header>
 
     <main id="conteudo">
       <section id="inicio" class="hero">
         <div class="hero-content">
           <p>Um clube feito por e para nós</p>
-          <h1>Nosso orgulho.<br>Nosso espaço.</h1>
+          <h1>Nosso orgulho<br>Nosso espaço.</h1>
           <p>
             Um fã-clube fictício para celebrar mulheres lésbicas, criar laços
             e colecionar emblemas.
@@ -71,12 +71,15 @@
         <audio controls preload="metadata">
           <source src="assets/audio/boas-vindas.mp3" type="audio/mpeg">
           <source src="assets/audio/boas-vindas.aac" type="audio/aac">
-          
+        </audio>  
       </section>
 
       <section id="emblemas">
-        <h2>Seu tempo. Seu emblema.</h2>
+        <h2>Seu tempo, seu emblema.</h2>
         <p>Cada etapa da sua jornada no clube desbloqueia um novo emblema.</p>
+
+<!-- Correção 2: removemos role=list/listitem redundantes, que causavam incompatibilidade entre os papéis ARIA. -->
+
         <div id="badge-list" aria-label="Coleção de emblemas"></div>
       </section>
 
@@ -99,14 +102,83 @@
           cada integrante e valorizar a cultura lésbica. Os emblemas representam
           o tempo e as memórias construídas junto ao clube.
         </p>
-        <p>
-          Este é um projeto fictício para a atividade de Desenvolvimento
-          Front-end para Web.
-        </p>
+          Este projeto é fictício.<br>
+          Foi desenvolvido para a disciplina de Desenvolvimento Front-end para Web, ministrada pelo professor: Jeofton Costa Melo.<br> Turma: F, Análise e Desenvolvimento de Sistemas, 2º Período.
       </section>
+
+      <section id="bandeiras" aria-labelledby="bandeiras-titulo">
+  <h2 id="bandeiras-titulo">Bandeiras que celebram nossa comunidade</h2>
+  <p>
+    Uma seleção de bandeiras LGBTQIAPN+. Cada uma representa histórias e
+    identidades diversas; existem outras bandeiras e variações.
+  </p>
+
+  <div class="flag-grid">
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-orgulho.svg" alt="Bandeira arco-íris do orgulho LGBTQIA+">
+      <h3>Orgulho LGBTQIA+</h3>
+      <p>A sigla reúne diferentes orientações sexuais, identidades de gênero e características sexuais. Homossexualidade é sentir atração afetiva, romântica e/ou sexual por pessoas do mesmo gênero.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-lesbica.svg" alt="Bandeira lésbica Sunset, com faixas em tons de laranja, branco e rosa">
+      <h3>Orgulho lésbico</h3>
+      <p>Mulher que sente atração afetiva, romântica e/ou sexual por outras mulheres. Algumas pessoas não binárias também usam essa identidade.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-bissexual.svg" alt="Bandeira bissexual, com faixas rosa, roxa e azul">
+      <h3>Orgulho bissexual</h3>
+      <p>Pessoa que pode sentir atração por mais de um gênero. Essa atração não precisa ser igual ou acontecer da mesma forma.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-trans.svg" alt="Bandeira trans, com faixas azuis, rosas e brancas">
+      <h3>Orgulho trans</h3>
+      <p>Pessoa cuja identidade de gênero é diferente do gênero que lhe foi atribuído ao nascer. Ser trans não determina por quem a pessoa sente atração.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-pansexual.svg" alt="Bandeira pansexual, com faixas rosa, amarela e azul">
+      <h3>Orgulho pansexual</h3>
+      <p>Pessoa que pode sentir atração afetiva, romântica e/ou sexual por pessoas de qualquer gênero. Isso não significa sentir atração por todas as pessoas.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-nao-binaria.svg" alt="Bandeira não binária, com faixas amarela, branca, roxa e preta">
+      <h3>Orgulho não binário</h3>
+      <p>Pessoa que não se identifica exclusivamente como homem ou mulher. Pode se identificar com mais de um gênero, com nenhum ou com uma identidade fluida.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-assexual.svg" alt="Bandeira assexual, com faixas preta, cinza, branca e roxa">
+      <h3>Orgulho assexual</h3>
+      <p>Pessoa que sente pouca ou nenhuma atração sexual. Isso não determina se sente atração romântica ou deseja relacionamentos.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-arromantica.svg" alt="Bandeira arromântica, com faixas verdes, branca, cinza e preta">
+      <h3>Orgulho arromântico</h3>
+      <p>Pessoa que sente pouca ou nenhuma atração romântica. Isso é diferente da atração sexual, que pode variar de pessoa para pessoa.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-intersexo.svg" alt="Bandeira intersexo amarela com um círculo roxo">
+      <h3>Orgulho intersexo</h3>
+      <p>Pessoa que nasce com características sexuais que variam das definições típicas de masculino ou feminino. Intersexo não é uma orientação sexual.</p>
+    </article>
+
+    <article class="flag-card">
+      <img src="assets/bandeiras/bandeira-agenero.svg" alt="Bandeira agênero, com faixas pretas, cinzas, brancas e verdes">
+      <h3>Orgulho agênero</h3>
+      <p>Pessoa que não se identifica com nenhum gênero ou sente que não tem gênero. Algumas pessoas agênero também se identificam como não binárias.</p>
+    </article>
+  </div>
+</section>
+
       <section id="destaque" aria-labelledby="destaque-titulo">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-start">
       <div class="col-12 col-lg-8">
         <article class="event-card">
           <p class="event-label">Destaque da comunidade</p>
@@ -175,7 +247,8 @@
     </main>
 
     <footer>
-      <p>SapaClub — um projeto fictício feito com orgulho e código.</p>
+      <p>Wylliane Cavalcante Spinellis <br>
+        Sapa Club - Um projeto fictício feito com orgulho e código.</p>
       <a href="#inicio">Voltar ao início</a>
     </footer>
   </body>

@@ -218,6 +218,8 @@ button {
   font-size: 12px;
 }
 
+/* Correção 1: a opacidade no cartão reduzia o contraste do texto; mantemos o texto legível e aplicamos escala de cinza apenas ao emblema. */
+
 .badge-card.locked {
   opacity: 1;
   filter: none;

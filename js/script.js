@@ -175,13 +175,16 @@ function atualizarEmblemas() {
 
 function atualizarPasse() {
   if (!controleMeses) {
+
+// Correção 3: o status escrito informa se o emblema está bloqueado, sem depender apenas da cor.
+
     return;
   }
 
   const mesesAtuais = Number(controleMeses.value);
   const unidade = mesesAtuais === 1 ? "mês" : "meses";
 
-  // Correção: leitores de tela recebem o valor do controle com a unidade adequada.
+  // Correção 4: leitores de tela recebem o valor do controle com a unidade adequada.
   controleMeses.setAttribute(
     "aria-valuetext",
     `${mesesAtuais} ${unidade} de participação`,

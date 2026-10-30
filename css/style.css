@@ -523,3 +523,57 @@ footer a {
   padding-right: 0;
   padding-left: 0;
 }
+
+#bandeiras {
+  background: #f7edf1;
+}
+
+#bandeiras > p {
+  max-width: 760px;
+  color: var(--muted);
+}
+
+#bandeiras .flag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.flag-card {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.flag-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.flag-card h3 {
+  margin: 12px 0 0;
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  #bandeiras .flag-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .flag-card {
+    padding: 12px;
+  }
+
+  .flag-card h3 {
+    font-size: 14px;
+  }
+}

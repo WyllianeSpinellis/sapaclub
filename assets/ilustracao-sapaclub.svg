@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 430 360"
+     role="img"
+     aria-labelledby="titulo descricao">
+  <title id="titulo">Corações do SapaClub</title>
+  <desc id="descricao">
+    Dois corações em tons de rosa e lilás, com uma estrela ao centro,
+    representam orgulho e comunidade.
+  </desc>
+
+  <defs>
+    <linearGradient id="rosa" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff8ca0"/>
+      <stop offset="1" stop-color="#da4e78"/>
+    </linearGradient>
+    <linearGradient id="lilas" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e4c7ff"/>
+      <stop offset="1" stop-color="#a581d0"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="215" cy="180" r="130" fill="#bb5e97" opacity=".18"/>
+
+  <path
+    d="M215 300S82 225 82 137c0-60 69-83 133-7 64-76 133-53 133 7 0 88-133 163-133 163Z"
+    fill="url(#rosa)"
+  />
+
+  <path
+    d="M215 260s-82-47-82-101c0-39 42-55 82-5 40-50 82-34 82 5 0 54-82 101-82 101Z"
+    fill="url(#lilas)"
+  />
+
+  <path
+    d="m215 137 9 22 24 2-18 15 6 23-21-13-21 13 6-23-18-15 24-2 9-22Z"
+    fill="#fff8f0"
+  />
+
+  <circle cx="107" cy="81" r="5" fill="#f3c86a"/>
+  <circle cx="325" cy="126" r="5" fill="#f3c86a"/>
+</svg>

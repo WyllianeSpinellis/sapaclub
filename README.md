@@ -1,54 +1,59 @@
-# SapaClub — Nosso orgulho. Nosso espaço.
+# SapaClub
 
-Um fã-clube fictício criado para celebrar mulheres lésbicas, compartilhar histórias e construir laços de comunidade por meio de um espaço acolhedor e inclusivo.
+O SapaClub é um fã-clube fictício criado para celebrar mulheres lésbicas. A proposta é imaginar um espaço online onde integrantes possam compartilhar interesses, criar vínculos e acompanhar uma coleção de emblemas que representa o tempo de participação no clube.
 
-🌐 **Acesse o site:** [SapaClub no GitHub Pages](https://wyllianespinellis.github.io/sapaclub/)
+Este projeto está sendo desenvolvido como atividade de Desenvolvimento Front-end para Web. O site é demonstrativo: não possui contas reais, chat nem painel de administração conectado a um servidor.
 
-## Sobre o projeto
+## Emblemas
 
-O SapaClub nasceu como um projeto acadêmico de Desenvolvimento Front-end para Web. A proposta é imaginar uma comunidade online onde mulheres lésbicas possam se reconhecer, celebrar suas histórias e interagir em um ambiente respeitoso.
+| Tempo de participação | Emblema |
+| --- | --- |
+| 1 mês | Faísca |
+| 2 meses | Brilho |
+| 6 meses | Orgulho |
+| 12 meses | Lenda |
+| 24 meses | Ícone |
 
-A coleção de emblemas representa o tempo de participação no clube. Cada pessoa pode explorar uma jornada fictícia, desbloquear emblemas e montar sua coleção.
+## Funcionalidades da versão atual
 
-## Recursos
+- Página inicial com navegação e conteúdo sobre a comunidade fictícia.
+- Emblemas SVG que aparecem conforme o tempo selecionado.
+- Simulação do passe de integrante.
+- Favoritos e progresso salvos no armazenamento local do navegador.
+- Formulário demonstrativo com validação nativa; ele não envia o e-mail a um servidor.
+- Layout responsivo e foco visível para navegação por teclado.
 
-- Emblemas em SVG para diferentes etapas da jornada: 1, 2, 3, 6, 9, 12, 18 e 24 meses.
-- Controle interativo para simular o tempo de participação e visualizar os emblemas desbloqueados.
-- Passe e emblemas favoritos salvos no navegador com `localStorage`.
-- Cartão de destaque da comunidade com botão de interesse.
-- Perguntas frequentes em um acordeão do Bootstrap.
-- Formulário demonstrativo com validação dos campos.
-- Ilustração SVG e mensagem de boas-vindas em áudio.
-- Layout responsivo, navegação por teclado e recursos de acessibilidade.
-
-## Tecnologias utilizadas
+## Tecnologias
 
 - HTML5 semântico
 - CSS3
 - JavaScript
-- Bootstrap 5
 - SVG
-- Áudio MP3 e AAC
-- Git e GitHub
 
-## Executar localmente
+## Decisão sobre os gráficos
 
-1. Baixe ou clone este repositório.
-2. Abra a pasta do projeto no Visual Studio Code.
-3. Abra o `index.html` com a extensão Live Server ou em um navegador.
+O SapaClub usa SVG nos emblemas e na ilustração do destaque. Como são gráficos vetoriais, eles podem aumentar ou diminuir sem perder nitidez. Os SVGs também têm título e descrição acessíveis. Canvas não foi necessário porque o site não precisa de desenho pixel a pixel nem de animações gráficas intensivas.
 
-O projeto também pode ser acessado diretamente pelo link do GitHub Pages no início deste README.
+## Como visualizar
 
-## Estrutura do projeto
+Abra `index.html` em um navegador. O projeto não precisa de instalação de dependências.
+
+## Estrutura de arquivos
 
 ```text
 sapaclub/
-├── assets/
-│   ├── audio/
-│   └── ilustracao-sapaclub.svg
+├── index.html
+├── README.md
+├── .gitignore
 ├── css/
 │   └── style.css
-├── js/
-│   └── script.js
-├── index.html
-└── README.md
+└── js/
+    └── script.js
+
+## Aula 15 — DNS, domínios, SSL e deploy
+
+O SapaClub foi publicado com GitHub Pages. A conexão HTTPS está ativada.
+
+A publicação usa o domínio padrão do GitHub Pages; não foi configurado um domínio personalizado.
+
+Acesse o site: [SapaClub](https://wyllianespinellis.github.io/sapaclub/)

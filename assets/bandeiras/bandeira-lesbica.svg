@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 280" role="img" aria-labelledby="titulo">
+  <title id="titulo">Bandeira lésbica Sunset</title>
+  <rect x="0" y="0" width="420" height="40" fill="#D52D00"/>
+  <rect x="0" y="40" width="420" height="40" fill="#EF7627"/>
+  <rect x="0" y="80" width="420" height="40" fill="#FF9A56"/>
+  <rect x="0" y="120" width="420" height="40" fill="#FFFFFF"/>
+  <rect x="0" y="160" width="420" height="40" fill="#D162A4"/>
+  <rect x="0" y="200" width="420" height="40" fill="#B55690"/>
+  <rect x="0" y="240" width="420" height="40" fill="#A30262"/>
+</svg>

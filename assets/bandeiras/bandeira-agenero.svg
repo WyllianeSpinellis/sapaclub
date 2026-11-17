@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 280" role="img" aria-labelledby="titulo">
+  <title id="titulo">Bandeira agênero</title>
+  <rect width="420" height="40" y="0" fill="#000000"/>
+  <rect width="420" height="40" y="40" fill="#B9B9B9"/>
+  <rect width="420" height="40" y="80" fill="#FFFFFF"/>
+  <rect width="420" height="40" y="120" fill="#B7F684"/>
+  <rect width="420" height="40" y="160" fill="#FFFFFF"/>
+  <rect width="420" height="40" y="200" fill="#B9B9B9"/>
+  <rect width="420" height="40" y="240" fill="#000000"/>
+</svg>
